@@ -1,9 +1,11 @@
 name: brew test-bot
+
 on:
   push:
     branches:
       - main
   pull_request:
+
 jobs:
   test-bot:
     strategy:
@@ -32,6 +34,9 @@ jobs:
       - run: brew test-bot --only-setup
 
       - run: brew test-bot --only-tap-syntax
+
+      - name: Setup git-lfs
+        run: brew install git-lfs
 
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
