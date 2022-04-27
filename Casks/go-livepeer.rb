@@ -3,11 +3,6 @@ cask "go-livepeer" do
   platform = OS.mac? ? "darwin" : "linux"
   version "0.5.29"
 
-  url "https://github.com/livepeer/go-livepeer/releases/download/v#{version}/livepeer-#{platform}-#{arch}.tar.gz"
-  name "go-livepeer"
-  desc "Official Go implementation of the Livepeer protocol"
-  homepage "https://livepeer.org/"
-
   if arch == "amd64" && OS.mac?
     sha256 "a342177e47e72bee030533271d69c1316cccf5784e6cf5638a5452bd3021eaeb"
   elsif arch == "amd64" && OS.linux?
@@ -15,6 +10,12 @@ cask "go-livepeer" do
   elsif arch == "arm64"
     sha256 "1cf2b2c606d18e4c515256b8b364777312b62dffa92075557adde0d9265feec2"
   end
+
+  url "https://github.com/livepeer/go-livepeer/releases/download/v#{version}/livepeer-#{platform}-#{arch}.tar.gz",
+      verified: "github.com/livepeer/go-livepeer/"
+  name "go-livepeer"
+  desc "Official Go implementation of the Livepeer protocol"
+  homepage "https://livepeer.org/"
 
   livecheck do
     url "https://github.com/livepeer/go-livepeer/releases/latest/"
@@ -25,8 +26,10 @@ cask "go-livepeer" do
     end
   end
 
-  binary "livepeer"
-  binary "livepeer_bench"
-  binary "livepeer_cli"
-  binary "livepeer_router"
+  conflicts_with formula: "go-livepeer"
+
+  binary "livepeer-#{platform}-#{arch}/livepeer"
+  binary "livepeer-#{platform}-#{arch}/livepeer_bench"
+  binary "livepeer-#{platform}-#{arch}/livepeer_cli"
+  binary "livepeer-#{platform}-#{arch}/livepeer_router"
 end
