@@ -5,20 +5,32 @@ class GoLivepeer < Formula
       tag:      "v0.5.29",
       revision: "d85cb21937a0c302f0929889151ad7b3351994d2"
   license "MIT"
-  head "https://github.com/livepeer/go-livepeer.git", branch: "master"
+  head "https://github.com/livepeer/go-livepeer.git",
+       branch: "master"
 
   option "with-dev", "build with support for only development networks"
 
   depends_on "autoconf" => :build
   depends_on "go" => :build
-  depends_on "llvm" => :build
   depends_on "pkg-config" => :build
+
+  env :std
+
+  on_macos do
+    depends_on "coreutils" => :build
+    depends_on "llvm" => :build
+  end
 
   def install
     tags = ((build.with? "dev") && "dev") || "mainnet"
-    system "./install_ffmpeg.sh"
-    system "BUILD_TAGS=#{tags}", "PKG_CONFIG_PATH=#{ENV["HOME"]}/compiled/lib/pkgconfig",
-           "make", "livepeer", "livepeer_cli", "livepeer_bench", "livepeer_router"
+    system "./install_ffmpeg.sh", (ENV["HOME"]).to_s
+    ENV["BUILD_TAGS"] = tags
+    ENV["PKG_CONFIG_PATH"] = "#{ENV["HOME"]}/compiled/lib/pkgconfig"
+    system "make", "livepeer", "livepeer_bench", "livepeer_cli", "livepeer_router"
+    bin.install "livepeer"
+    bin.install "livepeer_bench"
+    bin.install "livepeer_cli"
+    bin.install "livepeer_router"
   end
 
   test do
