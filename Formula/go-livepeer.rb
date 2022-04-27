@@ -14,6 +14,8 @@ class GoLivepeer < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
+  env :std
+
   on_macos do
     depends_on "coreutils" => :build
     depends_on "llvm" => :build
@@ -24,8 +26,11 @@ class GoLivepeer < Formula
     system "./install_ffmpeg.sh", (ENV["HOME"]).to_s
     ENV["BUILD_TAGS"] = tags
     ENV["PKG_CONFIG_PATH"] = "#{ENV["HOME"]}/compiled/lib/pkgconfig"
-    system "make", "livepeer"
+    system "make", "livepeer", "livepeer_bench", "livepeer_cli", "livepeer_router"
     bin.install "livepeer"
+    bin.install "livepeer_bench"
+    bin.install "livepeer_cli"
+    bin.install "livepeer_router"
   end
 
   test do
