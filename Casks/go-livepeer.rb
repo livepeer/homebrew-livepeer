@@ -1,14 +1,14 @@
 cask "go-livepeer" do
   arch = Hardware::CPU.intel? ? "amd64" : "arm64"
   platform = OS.mac? ? "darwin" : "linux"
-  version "0.5.29"
+  version "0.5.30"
 
   if arch == "amd64" && OS.mac?
-    sha256 "a342177e47e72bee030533271d69c1316cccf5784e6cf5638a5452bd3021eaeb"
+    sha256 "a9ae50224263215dc747c850b8ed62ce33207778cfd4c6b351b5b5459481c44e"
   elsif arch == "amd64" && OS.linux?
-    sha256 "276936a0d3d3dea9fbacfc464ee1c12deddc4262c20427e0c3f9a2cfeeb1a6ac"
+    sha256 "e3c77841c96a17ddf950e0870099c3060d0680e471023d2cef4a8ebfbde16cf8"
   elsif arch == "arm64"
-    sha256 "1cf2b2c606d18e4c515256b8b364777312b62dffa92075557adde0d9265feec2"
+    sha256 "6e8aa09842d5700a059f71b1ceec81600959866a60132a292cb763a5b908bf8b"
   end
 
   url "https://github.com/livepeer/go-livepeer/releases/download/v#{version}/livepeer-#{platform}-#{arch}.tar.gz",
