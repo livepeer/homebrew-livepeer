@@ -11,6 +11,7 @@ class GoLivepeer < Formula
   option "with-dev", "build with support for only development networks"
 
   depends_on "autoconf" => :build
+  depends_on "git-lfs" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
