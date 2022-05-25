@@ -1,5 +1,5 @@
 class GoLivepeer < Formula
-  desc "Official Go implementation of the Livepeer protocol"
+  desc "Dummy change to description for testing formulae bottle build step"
   homepage "https://livepeer.org/"
   url "https://github.com/livepeer/go-livepeer.git",
       tag:      "v0.5.31",
