@@ -23,9 +23,9 @@ class GoLivepeer < Formula
 
   def install
     tags = ((build.with? "dev") && "dev") || "mainnet"
-    system "./install_ffmpeg.sh", (ENV["HOME"]).to_s
+    system "./install_ffmpeg.sh", Dir.home
     ENV["BUILD_TAGS"] = tags
-    ENV["PKG_CONFIG_PATH"] = "#{ENV["HOME"]}/compiled/lib/pkgconfig"
+    ENV["PKG_CONFIG_PATH"] = "#{Dir.home}/compiled/lib/pkgconfig"
     system "make", "livepeer", "livepeer_bench", "livepeer_cli", "livepeer_router"
     bin.install "livepeer"
     bin.install "livepeer_bench"
