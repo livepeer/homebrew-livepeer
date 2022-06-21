@@ -35,12 +35,8 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - name: Setup git-lfs
-        run: |
-          brew install git-lfs
-          git lfs install
-
       - run: brew test-bot --only-formulae
+        continue-on-error: true
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact

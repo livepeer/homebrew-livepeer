@@ -2,8 +2,8 @@ class GoLivepeer < Formula
   desc "Official Go implementation of the Livepeer protocol"
   homepage "https://livepeer.org/"
   url "https://github.com/livepeer/go-livepeer.git",
-      tag:      "v0.5.31",
-      revision: "f968eaffd97572c47c8ed0efe5fb93230e71883d"
+      tag:      "v0.5.32",
+      revision: "c8eedbfdfa037418dc31b43dc39121943120141c"
   license "MIT"
   head "https://github.com/livepeer/go-livepeer.git",
        branch: "master"
@@ -23,9 +23,9 @@ class GoLivepeer < Formula
 
   def install
     tags = ((build.with? "dev") && "dev") || "mainnet"
-    system "./install_ffmpeg.sh", (ENV["HOME"]).to_s
+    system "./install_ffmpeg.sh", Dir.home
     ENV["BUILD_TAGS"] = tags
-    ENV["PKG_CONFIG_PATH"] = "#{ENV["HOME"]}/compiled/lib/pkgconfig"
+    ENV["PKG_CONFIG_PATH"] = "#{Dir.home}/compiled/lib/pkgconfig"
     system "make", "livepeer", "livepeer_bench", "livepeer_cli", "livepeer_router"
     bin.install "livepeer"
     bin.install "livepeer_bench"
