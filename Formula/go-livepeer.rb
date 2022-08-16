@@ -2,8 +2,8 @@ class GoLivepeer < Formula
   desc "Official Go implementation of the Livepeer protocol"
   homepage "https://livepeer.org/"
   url "https://github.com/livepeer/go-livepeer.git",
-      tag:      "v0.5.33",
-      revision: "0b3c88f814dccca70a23022f4366eb8069955955"
+      tag:      "v0.5.34",
+      revision: "0602f81091ba4df17c26b45f57ff1c153ea27d96"
   license "MIT"
   head "https://github.com/livepeer/go-livepeer.git",
        branch: "master"
