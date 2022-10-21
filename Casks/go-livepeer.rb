@@ -6,10 +6,10 @@ cask "go-livepeer" do
   if OS.mac?
     platform = "darwin"
     if Hardware::CPU.intel?
-      sha256 "769a6a86c7ca7d507257f66fee90a660fd39378a09bd654c22161bb97e8b1dd9"
+      sha256 "5d3dd7d9d18c9c488f433b74b11c84091fd474575b362bc0e06bd91e686e8e2e"
       arch = "amd64"
     elsif Hardware::CPU.arm?
-      sha256 "54dadfa57a9d5bdbed761763ad60c4cbd60802c4add72df4e59b8f740925f021"
+      sha256 "e10685dab9d89dd14f8055f54e203189e7faa83abe268fcc643dbf5f6caef074"
       arch = "arm64"
     end
   end
@@ -17,10 +17,10 @@ cask "go-livepeer" do
   if OS.linux?
     platform = "linux"
     if Hardware::CPU.intel?
-      sha256 "1a53c8ee0be0c93b9f1f6a2458ce469401b7623e577a3c22708446c0c21df5a9"
+      sha256 "49ddf35ddef03f5a77ef1dff8431123a74bf7406b715d9d9e39aed57c36acf4b"
       arch = "amd64"
     elsif Hardware::CPU.arm?
-      sha256 "fb27c59063d14e686f844c08cbe28a44519e475b3b18c3901411d206ba446c2a"
+      sha256 "8763dd84eb8c8740f216b884cf8d22fbbda062a28d7748f0318511c57e83f6b3"
       arch = "arm64"
     end
   end
