@@ -1,15 +1,15 @@
 cask "go-livepeer" do
-  version "0.5.34"
+  version "0.5.36"
 
   license "MIT"
 
   if OS.mac?
     platform = "darwin"
     if Hardware::CPU.intel?
-      sha256 "5d3dd7d9d18c9c488f433b74b11c84091fd474575b362bc0e06bd91e686e8e2e"
+      sha256 "fb70d2c148f389e95873422222021044126a7ad2c053e367c3ac78c9c3e0a37e"
       arch = "amd64"
     elsif Hardware::CPU.arm?
-      sha256 "e10685dab9d89dd14f8055f54e203189e7faa83abe268fcc643dbf5f6caef074"
+      sha256 "f5de617f09260cf254c6e90fe104dfda93dbf793ff7073b70bc09d2f62e36bba"
       arch = "arm64"
     end
   end
@@ -17,10 +17,10 @@ cask "go-livepeer" do
   if OS.linux?
     platform = "linux"
     if Hardware::CPU.intel?
-      sha256 "49ddf35ddef03f5a77ef1dff8431123a74bf7406b715d9d9e39aed57c36acf4b"
+      sha256 "8ab170ef849fa6e6324868733d6f6162f2fe066bd4b7348749194bb3e6257f08"
       arch = "amd64"
     elsif Hardware::CPU.arm?
-      sha256 "8763dd84eb8c8740f216b884cf8d22fbbda062a28d7748f0318511c57e83f6b3"
+      sha256 "76f28875465f9081af64b9b69d3ad9a94e627717cc43b77dd43ffe3254518e90"
       arch = "arm64"
     end
   end
